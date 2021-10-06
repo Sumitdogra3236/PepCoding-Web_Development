@@ -22,7 +22,7 @@ function hwt(html){
         let hasclass = $(teamArr[i]).hasClass("team-gray");
         if(hasclass == false){
             let wteamName = $(teamArr[i]).find(".name");
-            // console.log(wteamName.text())
+            console.log(wteamName.text().trim())
         }
     }
 
@@ -31,8 +31,15 @@ function hwt(html){
     
     for(let i = 0; i < inningArr.length; i++){
         let inningHtml = $(inningArr[i]).html();
-        let teamName = $(".header-title.label");
-        console.log(teamName.text())
+        let teamNameEle = $(inningArr[i]).find(".header-title.label");
+        teamName = teamNameEle.text();
+        teamName = teamName.split("INNINGS");
+        teamName = teamName[0].trim();
+        
+        if(teamName == wteamName){
+            
+        }
+
     }
 
 
