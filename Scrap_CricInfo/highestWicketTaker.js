@@ -17,12 +17,13 @@ function cb(err, res, html){
 function hwt(html){
     let $ = cheerio.load(html);
     let teamArr = $(".match-info.match-info-MATCH .team");
-    
+    let wteamName;
     for(let i = 0; i < teamArr.length; i++){
         let hasclass = $(teamArr[i]).hasClass("team-gray");
         if(hasclass == false){
-            let wteamName = $(teamArr[i]).find(".name");
-            console.log(wteamName.text().trim())
+            wteamName = $(teamArr[i]).find(".name");
+            wteamName = wteamName.text().trim();
+            // console.log(wteamName);
         }
     }
 
@@ -35,9 +36,15 @@ function hwt(html){
         teamName = teamNameEle.text();
         teamName = teamName.split("INNINGS");
         teamName = teamName[0].trim();
-        
         if(teamName == wteamName){
+            let bowlingtable = $(inningArr[i]).find(".table.bowler");
+            let bowlingtablerows = bowlingtable.find("tr");
             
+            for(let j = 0; j < bowlingtablerows.length; j++){
+                // bowlingtablecols = bo
+            }
+
+
         }
 
     }
